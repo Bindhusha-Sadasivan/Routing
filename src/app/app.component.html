@@ -27,11 +27,15 @@
                 <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" routerLink="/servers">Servers</a>
+                <!-- <a class="nav-link" routerLink="/servers">Servers</a> -->
+                 <!-- We can also use the absolute path like this => http://localhost:4200/servers -->
+                <a class="nav-link" routerLink="servers">Servers</a>
               </li>
               <li class="nav-item">
                 <!-- We will see about this in the next lecture -->
-                <a class="nav-link" [routerLink]="['/users']">Users</a>
+                <!-- <a class="nav-link" [routerLink]="['/users']">Users</a> -->
+                 <!--We can also use the absolute path like this =>  http://localhost:4200/users -->
+                <a class="nav-link" [routerLink]="['users']">Users</a>
               </li>
             </ul>
 

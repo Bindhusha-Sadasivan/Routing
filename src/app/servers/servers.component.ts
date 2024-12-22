@@ -3,13 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { ServersService } from './servers.service';
 import { ServerComponent } from './server/server.component';
 import { EditServerComponent } from './edit-server/edit-server.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-servers',
   templateUrl: './servers.component.html',
   styleUrls: ['./servers.component.css'],
   standalone: true,
-  imports:[CommonModule, ServerComponent, EditServerComponent],
+  imports:[RouterModule, CommonModule, ServerComponent, EditServerComponent],
    providers:[ServersService],
 })
 export class ServersComponent implements OnInit {

@@ -10,6 +10,17 @@
     </div>
   </div>
   <div class="col-xs-12 col-sm-4">
+    <!-- This relative path will serach => http://localhost:4200/servers, we will get the actual page -->
+    <!-- <a routerLink="/servers">Reload Component</a> -->
+     <!-- This relative path will serach => http://localhost:4200/servers/servers, we didnt write any routes like path:'servers/servers'. It will throw error => ERROR RuntimeError: NG04002: Cannot match any routes. URL Segment: 'servers/servers'. So be careful while providing routes -->
+    <!-- <a routerLink="servers">Reload Component</a> -->
+     <!-- ERROR RuntimeError: NG04002: Cannot match any routes. URL Segment: 'servers/.servers' -->
+    <!-- <a routerLink=".servers">Reload Component</a> -->
+     <!-- ERROR RuntimeError: NG04002: Cannot match any routes. URL Segment: 'servers/servers' -->
+    <!-- <a routerLink="./servers">Reload Component</a> -->
+     <!-- http://localhost:4200/servers -->
+    <!-- <a routerLink="../servers">Reload Component</a> -->
+
     <app-edit-server></app-edit-server>
     <hr>
     <app-server></app-server>

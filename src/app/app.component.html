@@ -24,18 +24,27 @@
 <!-- If we use routerLink instead of href, the refresh button will not work and we can see our page loading immediately when we click on the link -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+                <a class="nav-link active" aria-current="page"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact:true}"
+                routerLink="/">Home</a>
               </li>
               <li class="nav-item">
                 <!-- <a class="nav-link" routerLink="/servers">Servers</a> -->
                  <!-- We can also use the absolute path like this => http://localhost:4200/servers -->
-                <a class="nav-link" routerLink="servers">Servers</a>
+                <a class="nav-link"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact:true}"
+                routerLink="servers">Servers</a>
               </li>
               <li class="nav-item">
                 <!-- We will see about this in the next lecture -->
                 <!-- <a class="nav-link" [routerLink]="['/users']">Users</a> -->
                  <!--We can also use the absolute path like this =>  http://localhost:4200/users -->
-                <a class="nav-link" [routerLink]="['users']">Users</a>
+                <a class="nav-link"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact:true}"
+                [routerLink]="['users']">Users</a>
               </li>
             </ul>
 

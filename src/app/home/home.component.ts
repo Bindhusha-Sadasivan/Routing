@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,15 +9,19 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private route:Router) { }
+  constructor(private router:Router,
+
+  ) { }
 
   ngOnInit() {
   }
 
+  // Using Absolute URL
   loadServers(){
     //Complex calculation to save something into servers. After finishing these calculations load the below page
-
-    this.route.navigate(['/servers']);
+    //Using Absolute URL
+    this.router.navigate(['/servers']);  //http://localhost:4200/servers
   }
+
 
 }

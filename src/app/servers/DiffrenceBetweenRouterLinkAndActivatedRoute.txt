@@ -1,0 +1,23 @@
+RouterLink will remember in which page we are currently in and where we have to move when we click on the link.
+
+Example:
+
+  <a routerLink="/servers">Reload Component</a>
+
+Currently, I am on the Servers component, when i click on this a tag, angular remembers, i am on http://localhost:4200/servers.
+And then it navigates again to this page only http://localhost:4200/servers
+
+  <a routerLink="servers">Reload Component</a>
+
+This routerLink will search for http://localhost:4200/servers/servers , as we didnt write any route or path, it will throw error.
+
+ActivatedRouter will not remember in which page I am on currentlt. That is why we are using this
+
+{relativeTo:this.route}
+
+this.route comes from the ACtivatedRoute and it tells that we are currently on this page http://localhost:4200/servers.
+
+ <button (click)="onReloadPage()" class="btn btn-primary mt-2 mb-2">Reload Page</button>
+ this.router.navigate(['/servers'], {relativeTo:this.route});
+
+When i click on the button it has to go to http://localhost:4200/servers from http://localhost:4200/servers.

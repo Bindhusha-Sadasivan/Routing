@@ -11,7 +11,7 @@ And then it navigates again to this page only http://localhost:4200/servers
 
 This routerLink will search for http://localhost:4200/servers/servers , as we didnt write any route or path, it will throw error.
 
-ActivatedRouter will not remember in which page I am on currentlt. That is why we are using this
+ActivatedRouter will not remember in which page I am on currently. That is why we are using this
 
 {relativeTo:this.route}
 

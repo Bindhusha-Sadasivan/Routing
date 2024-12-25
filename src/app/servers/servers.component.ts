@@ -29,7 +29,7 @@ export class ServersComponent implements OnInit {
   onReloadPage(){
     //This is to explain how relative URL is loaded programmatically.
     //This will show the same opened page.
-    // {relativeTo:this.route} => this relativeTo comes from ActivatedRoute and this.route means the courrent route in which we are in. This is also comes from ActivetedRote
+    // {relativeTo:this.route} => this relativeTo comes from ActivatedRoute and this.route means the current route in which we are in. This is also comes from ActivetedRoute
     //ActivatedRoute simply means that the currently loaded page
     //http://localhost:4200/servers
     this.router.navigate(['/servers'], {relativeTo:this.route});

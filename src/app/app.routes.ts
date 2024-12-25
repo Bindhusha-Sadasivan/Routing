@@ -15,7 +15,7 @@ export const routes: Routes = [
   //Whatever we pass after our url => http://localhost:4200/users/hello or http://localhost:4200/users/hello, it will load UserComponent
   // We should add : here. Then only it considers that as a parameter
   {
-    path: 'users/:id',
+    path: 'users/:id/:name',
     component: UserComponent
   },
   {

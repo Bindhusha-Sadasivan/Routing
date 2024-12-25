@@ -35,7 +35,7 @@ export class ServersComponent implements OnInit {
     this.router.navigate(['/servers'], {relativeTo:this.route});
 
     //ERROR RuntimeError: NG04002: Cannot match any routes. URL Segment: 'servers/servers'
-    this.router.navigate(['servers'], {relativeTo:this.route});
+    // this.router.navigate(['servers'], {relativeTo:this.route});
   }
 
 }

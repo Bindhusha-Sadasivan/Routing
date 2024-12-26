@@ -7,14 +7,24 @@
         *ngFor="let server of servers">
         {{ server.name }}
       </a> -->
-      <a
+      <!-- <a
         [routerLink]="['/servers', 5, 'edit']"
         [queryParams]="{allowEdit:true}"
         fragment="loading"
         class="list-group-item"
         *ngFor="let server of servers">
         {{ server.name }}
+      </a> -->
+
+      <a
+        [routerLink]="['/servers', server.id]"
+        [queryParams]="{allowEdit:true}"
+        fragment="loading"
+        class="list-group-item"
+        *ngFor="let server of servers">
+        {{ server.name }}
       </a>
+
     </div>
   </div>
   <div class="col-xs-12 col-sm-4">

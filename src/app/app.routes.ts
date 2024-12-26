@@ -4,6 +4,7 @@ import { UsersComponent } from './users/users.component';
 import { ServersComponent } from './servers/servers.component';
 import { UserComponent } from './users/user/user.component';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
+import { ServerComponent } from './servers/server/server.component';
 
 export const routes: Routes = [
   {
@@ -27,5 +28,9 @@ export const routes: Routes = [
   {
     path: 'servers/:id/edit',
     component: EditServerComponent
+  },
+  {
+    path: 'servers/:id',
+    component: ServerComponent
   }
 ];

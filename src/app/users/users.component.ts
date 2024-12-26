@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { UserComponent } from './user/user.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css'],
   standalone: true,
-  imports:[CommonModule, UserComponent]
+  imports:[CommonModule, UserComponent, RouterModule]
 })
 export class UsersComponent {
   users = [

@@ -1,0 +1,8 @@
+We can subscribe to query parameters and fragmets like below.
+
+ ngOnInit(){
+  console.log("queryParams",this.route.snapshot.queryParams);
+  console.log("fragments", this.route.snapshot.fragment);
+  this.route.queryParams.subscribe();
+  this.route.fragment.subscribe();
+ }

@@ -35,7 +35,11 @@ export class ServerComponent implements OnInit {
     )
   }
 
+  //  If we dint pass this parameter - queryParamsHandling:'preserve', then we will loose the query params
+  //  We will get like http://localhost:4200/servers/1/edit , we didnt get the query params passed from the serversComponent.
+  // To preserve that only, we are using queryParamsHandling:'preserve' => http://localhost:4200/servers/3/edit?allowEdit=1
+
   onEdit(){
-    this.router.navigate(["edit"], {relativeTo:this.route})
+    this.router.navigate(["edit"], {relativeTo:this.route, queryParamsHandling:'preserve'} )
   }
 }

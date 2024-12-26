@@ -79,3 +79,34 @@ ngOnInit() {
     }
   )
   }
+
+Using the above method, we can do n number of clicks or changes in the router, all the actions will be reflected.
+
+But this subscription will always be stored in the memory. But angular will unsubscribe this often.
+
+Once we change the component,  the component will be destroyed. but the subscription will stay in the memory and we have to clear this.
+
+So, we have to store the subscription in a variable and we have to explicitly clear this when we destroy our component.
+
+Declare a variable, paramsSubscription : Subscription, Subscription comes from rxjs/Subscription.
+
+And in the ngOnInit we have to subscribe this.
+
+paramsSubscription : Subscription;
+
+ngOnInit(){
+this.user = {
+  id : this.route.snapshot.params['id'],
+  name : this.route.snapshot.params['name']
+};
+this.paramsSubscription = this.route.params.subscribe(
+  (params:Params) => {
+    this.user.id = params['id'],
+    this.user.name = params['name']
+  }
+)
+}
+
+ngOnDestroy(){
+  this.paramsSubscription.unsubscribe();
+}

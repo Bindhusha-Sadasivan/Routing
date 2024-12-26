@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router, RouterLink, RouterModule } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user',
@@ -8,8 +9,10 @@ import { ActivatedRoute, Params, Router, RouterLink, RouterModule } from '@angul
   standalone: true,
   imports:[RouterModule]
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, OnDestroy {
   user!: {id: number, name: string};
+
+  paramsSubscription! : Subscription;
 
   constructor(private route:ActivatedRoute) { }
 
@@ -22,16 +25,33 @@ export class UserComponent implements OnInit {
   //When you type the URL,http://localhost:4200/users/1/Max, we will get the output.
 
   ngOnInit() {
+    // This is required for initial load and initial changes.
     this.user = {
       id : this.route.snapshot.params['id'],
       name : this.route.snapshot.params['name']
     };
+
+    //The below two methods are required for often changes in the URL
     //Whenever the route params changes, everything will be stored in Params Object. And we need a subscribe method to listen to the change in the route parameters.
-    this.route.params.subscribe(
+    //This shows how we can update our page when we are already on that page.
+    // this.route.params.subscribe(
+    //   (params:Params) => {
+    //     this.user.id = params['id'],
+    //     this.user.name = params['name']
+    //   }
+    // );
+
+    this.paramsSubscription = this.route.params.subscribe(
       (params:Params) => {
         this.user.id = params['id'],
         this.user.name = params['name']
       }
-    )
-  }
+  )
+}
+
+ngOnDestroy(): void {
+  //Called once, before the instance is destroyed.
+  //Add 'implements OnDestroy' to the class.
+this.paramsSubscription.unsubscribe();
+}
 }

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServersService } from './servers.service';
 import { ServerComponent } from './server/server.component';
 import { EditServerComponent } from './edit-server/edit-server.component';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Params, Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-servers',

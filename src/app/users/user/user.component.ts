@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params, Router, RouterLink, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css'],
-  standalone: true
+  standalone: true,
+  imports:[RouterModule]
 })
 export class UserComponent implements OnInit {
   user!: {id: number, name: string};
@@ -25,6 +26,12 @@ export class UserComponent implements OnInit {
       id : this.route.snapshot.params['id'],
       name : this.route.snapshot.params['name']
     };
+    //Whenever the route params changes, everything will be stored in Params Object. And we need a subscribe method to listen to the change in the route parameters.
+    this.route.params.subscribe(
+      (params:Params) => {
+        this.user.id = params['id'],
+        this.user.name = params['name']
+      }
+    )
   }
-
 }

@@ -1,0 +1,81 @@
+<div><a [routerLink]="['/users', 10, 'Anna']">Load Anna(10)</a></div>
+
+Added this line in the html.
+
+We have provided routerLink property binding here. WShen we give property binding like this [routerLink], it takes some property like "['routerName/path', paramOne, paramTwo]".
+
+If the parameter is a string then enclose inside ''.
+
+If the parameter is a number, simply use that number without ''.
+
+Always provide the routerName / path inside ''.
+
+The next step is, we already have the statement below in our code.
+
+ ngOnInit() {
+    this.user = {
+      id : this.route.snapshot.params['id'],
+      name : this.route.snapshot.params['name']
+    };
+  }
+
+The above code explains how to pass the parameters from url to a html template. And we have to describe the route for that.
+
+//Whatever we pass after our url => http://localhost:4200/users/hello or http://localhost:4200/users/hello, it will load UserComponent
+  // We should add : here. Then only it considers that as a parameter
+  {
+    path: 'users/:id/:name',
+    component: UserComponent
+  },
+
+
+But this works properly for tha Anna route also. But only on initial call.
+
+For example, When the page loads, the route will be like http://localhost:4200/users/10/Anna and the page displays
+User with ID _10_ loaded.
+
+User name is _Anna_
+
+Load Anna(10)
+
+Now if i change the route to http://localhost:4200/users/1/Max, the page loaded will be
+
+User with ID _1_ loaded.
+
+User name is _Max_
+
+Load Anna(10)
+
+Now if again i click Load Anna(10), URL will be changed like http://localhost:4200/users/10/Anna but the page displays this only.
+
+User with ID _1_ loaded.
+
+User name is _Max_
+
+Load Anna(10)
+
+This works on initial load only. It will not work after the next click.
+
+So what we have to do now?
+
+So in ActivatedRoute we have a method called  params. and we have to subscribe this params.
+
+Why we have to do like this?
+
+Whenever the route params changes, everything will be stored in Params Object. And we need a subscribe method to listen to the change in the route parameters.
+
+So we can call this inside the ngOnInit() method.
+
+ngOnInit() {
+    this.user = {
+      id : this.route.snapshot.params['id'],
+      name : this.route.snapshot.params['name']
+    };
+
+  this.route.params.subscribe(
+    (params:Params) => {
+      this.user.id = params['id'],
+      this.user.name = params['name]
+    }
+  )
+  }

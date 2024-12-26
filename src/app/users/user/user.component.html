@@ -1,2 +1,5 @@
 <p>User with ID _{{user.id}}_ loaded.</p>
 <p>User name is _{{user.name}}_</p>
+
+<!--Reload the same component with different id => Using params and subscribe in Router -->
+<div><a [routerLink]="['/users', 10, 'Anna']">Load Anna(10)</a></div>

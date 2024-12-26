@@ -1,0 +1,5 @@
+Child Nested Routes:
+
+Child Nested routes are responsible to load the components near by.
+
+Before giving child route, when we click on the component, the routed compunent will be loaded on the new page. But if we provide child route, the routed component will be loaded near by.

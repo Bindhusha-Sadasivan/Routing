@@ -42,9 +42,14 @@
     <!-- 132 - Using Relative Paths in Programmatic Navigation -->
     <!-- Using ActivatedRoutes -->
     <button (click)="onReloadPage()" class="btn btn-primary mt-2 mb-2">Reload Page</button>
-    <app-edit-server></app-edit-server>
+
+    <!-- <app-edit-server></app-edit-server>
     <hr>
-    <app-server></app-server>
+    <app-server></app-server> -->
+
+    <div class="col-8">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
 

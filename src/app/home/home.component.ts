@@ -23,5 +23,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/servers']);  //http://localhost:4200/servers
   }
 
-
+  loadServersById(id:number){
+    this.router.navigate(['/servers', id, 'edit'], {queryParams:{allowEdit:'true'}, fragment:'loading'});
+  }
 }

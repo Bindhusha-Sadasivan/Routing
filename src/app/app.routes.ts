@@ -7,6 +7,7 @@ import { EditServerComponent } from './servers/edit-server/edit-server.component
 import { ServerComponent } from './servers/server/server.component';
 import { Component } from '@angular/core';
 import { PageNotFoundComponent } from './pageNotFound/page-not-found/page-not-found.component';
+import { AuthGuard } from './guard/authGuard/auth-guard.service';
 
 export const routes: Routes = [
   {
@@ -32,6 +33,7 @@ export const routes: Routes = [
   {
     path: 'servers',
     component: ServersComponent,
+    canActivate: [AuthGuard],
 
     children:[
       {
@@ -62,6 +64,6 @@ export const routes: Routes = [
   //If we type any other route, it has to be re-directed to the wild card route.
   {
     path: '**',
-    redirectTo: 'not-found'
+    redirectTo: '/not-found'
   }
 ];

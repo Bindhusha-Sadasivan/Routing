@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
 import { PageNotFoundComponent } from './pageNotFound/page-not-found/page-not-found.component';
 import { AuthGuard } from './guard/authGuard/auth-guard.service';
 import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard/can-deactivate-guard.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 export const routes: Routes = [
   {
@@ -60,9 +61,15 @@ export const routes: Routes = [
   // },
   //When we click on any other unwanted page, it should leads to this component.
   // This is called wild card route
+  // {
+  //   path: 'not-found',
+  //   component: PageNotFoundComponent
+  // },
+  //Passing static data with routing
   {
     path: 'not-found',
-    component: PageNotFoundComponent
+    component: ErrorPageComponent,
+    data:{message: "This page is not found!!!"} //This data is what we want to pass it from route to .ts file and then to html template
   },
   //If we type any other route, it has to be re-directed to the wild card route.
   {

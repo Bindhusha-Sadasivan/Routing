@@ -26,13 +26,13 @@ export class ServerComponent implements OnInit {
     //We can use this method or the below method to dynamically load the component
     // We us e + here because, whatever parameters we pass here will be in string format. but id should be in the number format
     //To get the number format id we use + => It converts string to id
-    // const id = +this.route.snapshot.params['id'];
-    // this.server = this.serversService.getServer(id);
+    const id = +this.route.snapshot.params['id'];
+    this.server = this.serversService.getServer(id);
     this.route.params.subscribe(
       (params:Params) => {
         this.server = this.serversService.getServer(+params['id']);
       }
-    )
+    );
   }
 
   //  If we dint pass this parameter - queryParamsHandling:'preserve', then we will loose the query params

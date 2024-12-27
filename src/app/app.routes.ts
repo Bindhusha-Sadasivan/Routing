@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from './pageNotFound/page-not-found/page-not-fo
 import { AuthGuard } from './guard/authGuard/auth-guard.service';
 import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard/can-deactivate-guard.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { ServerResolverService } from './servers/server/server-resolver/server-resolver.service';
 
 export const routes: Routes = [
   {
@@ -46,7 +47,8 @@ export const routes: Routes = [
       },
       {
         path: ':id',
-        component: ServerComponent
+        component: ServerComponent,
+        resolve: {server:ServerResolverService}
       }
     ]
   },

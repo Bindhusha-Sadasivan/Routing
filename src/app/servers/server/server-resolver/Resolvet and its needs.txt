@@ -1,0 +1,18 @@
+Resolver:
+
+How we display the data dynamically before we render a route.
+
+In Server components, the three servers are already load, when i click on the individual server, i want to load it from the backend, this will take some couple of mutes.
+
+
+In such case we need a resolver.
+
+This is also a service like CanActivate or CanDeactivate which will allow us to run some code before the route is rendered.
+
+Resolver cannot decide whether we have to render this route or not or the component should be displayed or not.
+
+Resolver will always render the component in the end.
+
+But it does some pre loading.
+
+It will fetch some data, the component needs later on.

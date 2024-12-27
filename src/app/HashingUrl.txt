@@ -1,0 +1,23 @@
+Hashing URL:
+
+We have lot of routes like /servers, /users,..
+
+These routes works fine on our local machine.
+
+But this is not something which you should take for granted.
+
+Because these URL's are always parsed by the server which is going to host your application first and not by angular.
+
+If we have a 404 error, our application should return a 404 error page.
+
+localhost:4000/servers means it will look for the same /servers in your server on the real server hosting your web application.
+
+In SPA, we dont have the routes here, but we have only index.html which is our app.
+
+But the server will not parse any routes in the index.htm and it will throw 404 error.
+
+We have to use {useHash:true}. so that it will add a # between the domain and the routes.
+
+localhost:4000/#/servers
+
+Server will parse before # and the angular will look up after #. SO we will not get any 404 error on production

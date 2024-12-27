@@ -16,10 +16,12 @@ export class AuthServiceService {
         setTimeout(
           () => {
               resolve(this.loggedIn);
-          } , 800
+              console.log(this.loggedIn)
+          } , 2000
         )
       }
     );
+    return promise;
   }
 
   login(){

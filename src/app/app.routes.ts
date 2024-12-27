@@ -33,7 +33,8 @@ export const routes: Routes = [
   {
     path: 'servers',
     component: ServersComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
+    canActivateChild:[AuthGuard], // Guards the child routes
 
     children:[
       {

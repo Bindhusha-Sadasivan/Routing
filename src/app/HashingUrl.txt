@@ -20,4 +20,6 @@ We have to use {useHash:true}. so that it will add a # between the domain and th
 
 localhost:4000/#/servers
 
-Server will parse before # and the angular will look up after #. SO we will not get any 404 error on production
+Server will parse before # and the angular will look up after #. SO we will not get any 404 error on production.
+
+Let us look about this in detail in the future lecture.
